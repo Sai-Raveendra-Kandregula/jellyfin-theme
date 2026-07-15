@@ -76,21 +76,21 @@ html {
 .layout-desktop .detailPagePrimaryContainer,
 */
 .layout-desktop .detailPageContent {
-  padding-left: 5%;
+  padding-left: 5% !important;
 }
 
 .layout-desktop .detailPagePrimaryContent {
   width: 45%;
-  padding-left: 0%;
+  padding-left: 0% !important;
 }
 
 .layout-desktop [dir=ltr] .detailRibbon,
 .layout-tv [dir=ltr] .detailRibbon {
-  padding-left: 0%;
+  padding-left: 0% !important;
   flex-direction: column;
-  align-items: flex-start;
-  height: auto;
-  margin-top: -3em;
+  align-items: flex-start !important;
+  height: auto !important;
+  margin-top: -3em !important;
 }
 
 .layout-desktop .infoWrapper .nameContainer {
@@ -426,11 +426,13 @@ html {
 #castContent .cardOverlayButton-br {
   top: 0;
   position: absolute;
+  bottom: auto !important;
   right: 0;
 }
 
 .cardOverlayButton-br {
   top: 0;
+  bottom: auto !important;
   position: absolute;
   right: 0;
 }
@@ -513,7 +515,7 @@ html {
 }
 
 .itemsContainer>.card:hover {
-  transform: scale(1.025) ;
+  transform: scale(1.025);
 }
 
 .collapseContent,
