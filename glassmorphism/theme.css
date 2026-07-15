@@ -68,7 +68,7 @@ html {
 }
 
 .layout-desktop .detailImageContainer .card,
-.layout-desktop .itemTags{
+.layout-desktop .itemTags {
   display: none;
 }
 
@@ -81,6 +81,20 @@ html {
 
 .layout-desktop .detailPagePrimaryContent {
   width: 45%;
+  padding-left: 0%;
+}
+
+.layout-desktop [dir=ltr] .detailRibbon,
+.layout-tv [dir=ltr] .detailRibbon {
+  padding-left: 0%;
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+  margin-top: -3em;
+}
+
+.layout-desktop .infoWrapper .nameContainer {
+  margin-bottom: 0.5em;
 }
 
 .layout-desktop .detailPagePrimaryContainer {
@@ -415,9 +429,15 @@ html {
   right: 0;
 }
 
+.cardOverlayButton-br {
+  top: 0;
+  position: absolute;
+  right: 0;
+}
+
 
 .dialog {
-  background-color: #0000003d;
+  background-color: #00000069;
   backdrop-filter: blur(var(--blur));
   -webkit-backdrop-filter: blur(var(--blur));
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -453,9 +473,13 @@ html {
 
 .cardOverlayContainer {
   background: #0000003d;
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
+  /* backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur)); */
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-hoverable .cardOverlayButton-hover {
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 
 .card-hoverable:hover .cardOverlayButton-hover {
@@ -476,18 +500,20 @@ html {
   border-top-right-radius: 3px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  margin: 0.5em 0.5em 0.5em 0.5em;
 }
 
 .cardBox:hover {
   box-shadow: 5px 5px 12px 0px #000000a8;
 }
 
-.itemsContainer>.card>.cardBox {
+.itemsContainer>.card {
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.itemsContainer>.card>.cardBox:hover {
-  transform: scale(1.015) translateX(5px);
+.itemsContainer>.card:hover {
+  transform: scale(1.025) ;
 }
 
 .collapseContent,
@@ -502,7 +528,7 @@ html {
 
 .cardTextCentered,
 .cardTextCentered>.textActionButton {
-  padding-bottom: 5%;
+  padding-bottom: 0.5em;
 }
 
 .cardText-first {
@@ -528,7 +554,7 @@ html {
   -webkit-backdrop-filter: blur(var(--blur));
 }
 
-.cardOverlayFab-primary{
+.cardOverlayFab-primary {
   background-color: rgba(0, 0, 0, 0.4);
   border: 2px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(var(--blur));
@@ -537,28 +563,28 @@ html {
 }
 
 
-.emby-select-withcolor{
+.emby-select-withcolor {
   background-color: #202020a8;
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(var(--blur));
   -webkit-backdrop-filter: blur(var(--blur));
 }
 
-.detailTrackSelect{
+.detailTrackSelect {
   width: 20%;
   transition: all 0.5s ease-in-out;
 }
 
-.detailTrackSelect:hover{
+.detailTrackSelect:hover {
   width: 100%;
 }
 
-.detailTrackSelect:focus{
+.detailTrackSelect:focus {
   width: 100%;
 }
 
 
-.selectArrowContainer{
+.selectArrowContainer {
   margin-top: 1px;
   height: 18px;
   backdrop-filter: blur(var(--blur));
@@ -569,6 +595,6 @@ html {
   right: 1.5em;
 }
 
-.innerCardFooter > .itemProgressBar {
- padding: 0; 
+.innerCardFooter>.itemProgressBar {
+  padding: 0;
 }
