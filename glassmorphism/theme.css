@@ -35,15 +35,17 @@ html {
 }
 
 /*#####################################################################################################################
-            LAYOUT DESKTOP
+            LAYOUT DESKTOP & TV
 
 ######################################################################################################################*/
 
+.layout-tv .detailLogo,
 .layout-desktop .detailLogo {
   left: 5%;
   background-position: top left;
 }
 
+.layout-tv .itemBackdrop,
 .layout-desktop .itemBackdrop {
   background-attachment: scroll;
   background-position: center;
@@ -55,6 +57,7 @@ html {
   right: -20%;
 }
 
+.layout-tv .itemBackdrop:after,
 .layout-desktop .itemBackdrop:after {
   background: url("https://raw.githubusercontent.com/Sai-Raveendra-Kandregula/jellyfin-theme/main/glassmorphism/mask.png");
   background-size: cover;
@@ -62,23 +65,50 @@ html {
   height: 100%;
 }
 
+
+.layout-tv .detailPageWrapperContainer {
+  margin-top: 25vh;
+  /* inicial: 73 */
+}
+
 .layout-desktop .detailPageWrapperContainer {
   margin-top: -65vh;
   /* inicial: 73 */
 }
 
-.layout-desktop .detailImageContainer .card,
+/* Update this specific block to exempt the logo card */
+.layout-tv .detailImageContainer .card:not(:has(.detailLogo)),
+.layout-desktop .detailImageContainer .card:not(:has(.detailLogo)),
+.layout-tv .itemTags,
 .layout-desktop .itemTags {
-  display: none;
+  display: none !important;
 }
 
-/*
-.layout-desktop .detailPagePrimaryContainer,
-*/
+/* Force display and size parameters for the TV & Desktop Logo */
+.layout-tv .detailLogo,
+.layout-desktop .detailLogo {
+  display: block !important;
+  left: 5%;
+  top: 15vh; /* Pushes the logo down closer to the title info */
+  position: absolute;
+  background-position: bottom left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 12vh; 
+  width: 25vw;  
+  z-index: 3;
+}
+
+.layout-tv .detailLogo{
+  top: 18vh; /* Pushes the logo down closer to the title info */
+}
+
+.layout-tv .detailPageContent,
 .layout-desktop .detailPageContent {
   padding-left: 5% !important;
 }
 
+.layout-tv .detailPagePrimaryContent,
 .layout-desktop .detailPagePrimaryContent {
   width: 45%;
   padding-left: 0% !important;
@@ -93,34 +123,43 @@ html {
   margin-top: -3em !important;
 }
 
+.layout-tv .infoWrapper .nameContainer,
 .layout-desktop .infoWrapper .nameContainer {
   margin-bottom: 0.5em;
 }
 
+.layout-tv .detailPagePrimaryContainer,
 .layout-desktop .detailPagePrimaryContainer {
   display: inline-table;
   z-index: 2;
   left: 5%;
+  background-color: transparent !important;
 }
 
+.layout-tv .detailPageSecondaryContainer,
 .layout-desktop .detailPageSecondaryContainer {
   margin: 0 0 1.25em 0;
+  background-color: transparent !important;
 }
 
+.layout-tv .itemDetailsGroup,
 .layout-desktop .itemDetailsGroup {
   margin-top: 0;
 }
 
+.layout-tv a.overview-expand.emby-button,
 .layout-desktop a.overview-expand.emby-button {
   margin: none;
   padding: none;
 }
 
 
+.layout-tv .itemName.originalTitle,
 .layout-desktop .itemName.originalTitle {
   display: none;
 }
 
+.layout-tv .itemName,
 .layout-desktop .itemName,
 .layout-mobile .itemName {
   font-weight: normal;
@@ -128,10 +167,12 @@ html {
 
 /* buttons section styles */
 
+.layout-tv .mainDetailButtons,
 .layout-desktop .mainDetailButtons {
   margin-top: 1.5em;
 }
 
+.layout-tv .btnPlay,
 .layout-desktop .btnPlay {
   /*border: 2px solid #cecece;*/
   border-radius: 2em;
@@ -141,45 +182,67 @@ html {
   -webkit-backdrop-filter: blur(var(--blur));
   border: 1px solid rgba(255, 255, 255, 0.18);
   /*padding: 0.4em!important;*/
-  /*margin-right: 30%!important;*/
+  margin-right: 0.2em !important;
 }
 
+/* Fix all other detail circular buttons on hover/focus (removes the blue box) */
+.layout-tv .detailButton:not(.btnPlay),
+.layout-tv .detailButton:not(.btnPlay){
+  border-radius: 50% !important; /* Keeps circular buttons perfectly round */
+  box-shadow: none !important; /* Removes default glow maps */
+  aspect-ratio: 1;
+}
+.layout-tv .detailButton:not(.btnPlay):hover,
+.layout-tv .detailButton:not(.btnPlay):focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1);
+}
+
+.layout-tv .btnPlay:hover,
+.layout-tv .btnPlay:focus,
 .layout-desktop .btnPlay:hover {
-  background-color: #00a5dc28;
-  transform: scale(1.075);
+  background-color: #00a5dc28 !important;
+  transform: scale(1.05);
 }
 
+.layout-tv .btnPlay::after,
 .layout-desktop .btnPlay::after {
   content: attr(title);
   margin: 0 10px 0 2px;
   color: white;
 }
 
+.layout-tv .material-icons.detailButton-icon.play_arrow,
 .layout-desktop .material-icons.detailButton-icon.play_arrow {
   color: white;
-
 }
 
+.layout-tv .btnPlay.detailButton,
 .layout-desktop .btnPlay.detailButton {
   flex-direction: row;
 }
 
+.layout-tv .listViewUserDataButtons,
 .layout-desktop .listViewUserDataButtons {
   display: none;
 }
 
 /*  season section  */
+.layout-tv .vertical-list,
 .layout-desktop .vertical-list {
   flex-direction: row;
   flex-wrap: wrap;
 }
 
+.layout-tv .listItem-withContentWrapper,
 .layout-desktop .listItem-withContentWrapper {
   align-items: flex-start;
   flex-direction: column;
   width: 32%;
 }
 
+.layout-tv .listItem-content,
 .layout-desktop .listItem-content {
   display: flex;
   width: 100%;
@@ -187,11 +250,17 @@ html {
   align-items: flex-start;
 }
 
+.layout-tv .listItemImage-large,
 .layout-desktop .listItemImage-large {
   height: 16vw;
   width: 100%;
 }
 
+.layout-mobile .btnShuffle,
+.layout-tv .btnShuffle,
+.layout-desktop .btnShuffle {
+  display: none;
+}
 
 
 /*#####################################################################################################################
@@ -367,11 +436,6 @@ html {
   flex-direction: row;
 }
 
-.layout-mobile .btnShuffle,
-.layout-desktop .btnShuffle {
-  display: none;
-}
-
 .layout-mobile .material-icons.detailButton-icon.play_arrow {
   color: white;
 }
@@ -410,7 +474,7 @@ html {
 
 
 /********************************************************************************************************
-      general layout
+       general layout
 ********************************************************************************************/
 /* cast & crew circular */
 
@@ -476,7 +540,7 @@ html {
 .cardOverlayContainer {
   background: #0000003d;
   /* backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur)); */
+   -webkit-backdrop-filter: blur(var(--blur)); */
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -561,7 +625,6 @@ html {
   border: 2px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(var(--blur));
   -webkit-backdrop-filter: blur(var(--blur));
-
 }
 
 
@@ -573,7 +636,8 @@ html {
 }
 
 .detailTrackSelect {
-  width: 20%;
+  width: 50%;
+  padding-left: 5px;
   transition: all 0.5s ease-in-out;
 }
 
@@ -587,14 +651,13 @@ html {
 
 
 .selectArrowContainer {
-  margin-top: 1px;
-  height: 18px;
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  background-color: #202020a8;
+  margin-top: 3px;
+  height: 24px;
+  background-color: #20202000;
   position: relative;
-  top: 0;
+  top: -25%;
   right: 1.5em;
+  transform: translate(-1.5em, 0);
 }
 
 .innerCardFooter>.itemProgressBar {
